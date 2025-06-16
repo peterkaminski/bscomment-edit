@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Touch Me - Sample bsComment Page</title>
+    <meta name="description" content="A sample HTML page demonstrating bsComment metadata integration">
+    <meta name="author" content="Peter Kaminski">
+    
+    <!-- bsComment Metadata -->
+    <meta name="bscomment:repo" content="https://github.com/peterkaminski/sample-blog">
+    <meta name="bscomment:filepath" content="/touch-me/touch-me.html">
+    <meta name="bscomment:generated" content="2025-06-16T15:54:05-07:00">
+    <meta name="bscomment:generator" content="bsComment v1.2.8">
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            border-bottom: 2px solid #eee;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .meta-info {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .content {
+            margin: 2rem 0;
+        }
+        
+        .highlight {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+            color: #7f8c8d;
+            font-size: 0.8rem;
+        }
+        
+        .edit-button {
+            background-color: #3498db;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .edit-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Touch Me</h1>
+        <div class="meta-info">
+            Generated on June 16, 2025 at 3:54 PM PST by bsComment v1.2.8
+        </div>
+    </header>
+    
+    <main class="content">
+        <p>Welcome to this sample HTML page that demonstrates the bsComment metadata system. This page contains the special meta tags that allow the bsComment Editor to identify and edit files in GitHub repositories.</p>
+        
+        <div class="highlight">
+            <strong>bsComment Integration:</strong> This page includes metadata that tells bsComment Editor exactly where this file lives in the GitHub repository, making it easy to edit content directly through the web interface.
+        </div>
+        
+        <h2>How It Works</h2>
+        <p>The bsComment Editor application can:</p>
+        <ul>
+            <li>Load this HTML page from any public URL</li>
+            <li>Extract the embedded metadata to locate the source file</li>
+            <li>Authenticate with GitHub using a secure device flow</li>
+            <li>Make small edits (like adding timestamps) to demonstrate functionality</li>
+            <li>Commit changes back to the repository</li>
+        </ul>
+        
+        <h2>Metadata Details</h2>
+        <p>This page contains four key pieces of metadata:</p>
+        <ul>
+            <li><strong>Repository:</strong> https://github.com/peterkaminski/sample-blog</li>
+            <li><strong>File Path:</strong> /touch-me/touch-me.html</li>
+            <li><strong>Generated:</strong> 2025-06-16T15:54:05-07:00</li>
+            <li><strong>Generator:</strong> bsComment v1.2.8</li>
+        </ul>
+        
+        <div class="highlight">
+            <p><strong>Try it yourself:</strong> Copy this page's URL and use it with the bsComment Editor to see the metadata extraction and GitHub integration in action!</p>
+            <a href="#" class="edit-button">Edit with bsComment Editor</a>
+        </div>
+    </main>
+    
+    <footer>
+        <p>This sample page demonstrates bsComment metadata integration. The embedded meta tags allow automated tools to identify and edit the source file on GitHub.</p>
+        <p>Last modified: <time datetime="2025-06-16T15:54:05-07:00">June 16, 2025</time></p>
+    </footer>
+</body>
+</html>
