@@ -51,10 +51,10 @@ src/
 ### Metadata Extraction
 Parse these exact meta tags from HTML:
 ```html
-<meta name="markpub:repo" content="https://github.com/peterkaminski/">
-<meta name="markpub:filepath" content="/touch-me/touch-me.html">
-<meta name="markpub:generated" content="2025-06-16T15:54:05-07:00">
-<meta name="markpub:generator" content="bsComment v1.2.8">
+<meta name="bscomment:repo" content="https://github.com/peterkaminski/">
+<meta name="bscomment:filepath" content="/touch-me/touch-me.html">
+<meta name="bscomment:generated" content="2025-06-16T15:54:05-07:00">
+<meta name="bscomment:generator" content="bsComment v1.2.8">
 ```
 
 ### File Editing Specification

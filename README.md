@@ -65,10 +65,10 @@ A React single-page application that enables automated editing of HTML files hos
 The HTML files must contain the following metadata tags:
 
 ```html
-<meta name="markpub:repo" content="https://github.com/owner/repo">
-<meta name="markpub:filepath" content="/path/to/file.html">
-<meta name="markpub:generated" content="2025-06-16T15:54:05-07:00">
-<meta name="markpub:generator" content="bsComment v1.2.8">
+<meta name="bscomment:repo" content="https://github.com/owner/repo">
+<meta name="bscomment:filepath" content="/path/to/file.html">
+<meta name="bscomment:generated" content="2025-06-16T15:54:05-07:00">
+<meta name="bscomment:generator" content="bsComment v1.2.8">
 ```
 
 ## Building for Production

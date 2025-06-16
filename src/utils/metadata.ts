@@ -5,10 +5,10 @@ export function extractMetadataFromHtml(htmlContent: string): BsCommentMetadata 
   const parser = new DOMParser();
   const doc = parser.parseFromString(htmlContent, 'text/html');
   
-  const repoMeta = doc.querySelector('meta[name="markpub:repo"]');
-  const filepathMeta = doc.querySelector('meta[name="markpub:filepath"]');
-  const generatedMeta = doc.querySelector('meta[name="markpub:generated"]');
-  const generatorMeta = doc.querySelector('meta[name="markpub:generator"]');
+  const repoMeta = doc.querySelector('meta[name="bscomment:repo"]');
+  const filepathMeta = doc.querySelector('meta[name="bscomment:filepath"]');
+  const generatedMeta = doc.querySelector('meta[name="bscomment:generated"]');
+  const generatorMeta = doc.querySelector('meta[name="bscomment:generator"]');
 
   if (!repoMeta || !filepathMeta || !generatedMeta || !generatorMeta) {
     return null;

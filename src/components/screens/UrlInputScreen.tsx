@@ -95,10 +95,10 @@ export function UrlInputScreen({ onUrlSubmit, isLoading = false, error }: UrlInp
             Expected Metadata Format:
           </h3>
           <pre className="text-xs text-gray-700 bg-white p-3 rounded border overflow-x-auto">
-{`<meta name="markpub:repo" content="https://github.com/owner/repo">
-<meta name="markpub:filepath" content="/path/to/file.html">
-<meta name="markpub:generated" content="2025-06-16T15:54:05-07:00">
-<meta name="markpub:generator" content="bsComment v1.2.8">`}
+{`<meta name="bscomment:repo" content="https://github.com/owner/repo">
+<meta name="bscomment:filepath" content="/path/to/file.html">
+<meta name="bscomment:generated" content="2025-06-16T15:54:05-07:00">
+<meta name="bscomment:generator" content="bsComment v1.2.8">`}
           </pre>
         </div>
       </CardContent>

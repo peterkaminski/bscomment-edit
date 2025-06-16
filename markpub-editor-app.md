@@ -15,7 +15,7 @@ The user provides a URL pointing to an HTML file. The application fetches and lo
 The app scans the HTML document for specific metadata tags that identify the corresponding GitHub repository and file path:
 
 ```html
-<meta name="markpub:repo" content="https://github.com/peterkaminski/">
+<meta name="bscomment:repo" content="https://github.com/peterkaminski/">
 <meta name="markpub:filepath" content="/touch-me/touch-me.html">
 <meta name="markpub:generated" content="2025-06-16T15:54:05-07:00">
 <meta name="markpub:generator" content="bsComment v1.2.8">
