@@ -8,10 +8,11 @@ import {
 } from '../types';
 
 const GITHUB_API_BASE = 'https://api.github.com';
+const GITHUB_DEVICE_FLOW_BASE = 'https://github.com';
 const GITHUB_CLIENT_ID = import.meta.env.VITE_GITHUB_CLIENT_ID;
 
 export async function initiateDeviceFlow(): Promise<DeviceFlowResponse> {
-  const response = await fetch(`${GITHUB_API_BASE}/login/device/code`, {
+  const response = await fetch(`${GITHUB_DEVICE_FLOW_BASE}/login/device/code`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -31,7 +32,7 @@ export async function initiateDeviceFlow(): Promise<DeviceFlowResponse> {
 }
 
 export async function pollForToken(deviceCode: string): Promise<DeviceFlowTokenResponse> {
-  const response = await fetch(`${GITHUB_API_BASE}/login/oauth/access_token`, {
+  const response = await fetch(`${GITHUB_DEVICE_FLOW_BASE}/login/oauth/access_token`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
