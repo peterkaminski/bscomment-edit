@@ -8,9 +8,10 @@ import { useGitHubAuth } from '../../hooks/useGitHubAuth';
 interface GitHubAuthScreenProps {
   onAuthenticated: () => void;
   onBack: () => void;
+  scope?: string;
 }
 
-export function GitHubAuthScreen({ onAuthenticated, onBack }: GitHubAuthScreenProps) {
+export function GitHubAuthScreen({ onAuthenticated, onBack, scope }: GitHubAuthScreenProps) {
   const {
     isAuthenticated,
     user,
@@ -31,7 +32,7 @@ export function GitHubAuthScreen({ onAuthenticated, onBack }: GitHubAuthScreenPr
 
   const handleStartAuth = async () => {
     clearError();
-    await startDeviceFlow();
+    await startDeviceFlow(scope);
   };
 
   const handleStartPolling = () => {

@@ -10,7 +10,9 @@ import {
 const GITHUB_API_BASE = 'https://api.github.com';
 const GITHUB_CLIENT_ID = import.meta.env.VITE_GITHUB_CLIENT_ID;
 
-export async function initiateDeviceFlow(): Promise<DeviceFlowResponse> {
+export async function initiateDeviceFlow(scope?: string): Promise<DeviceFlowResponse> {
+  const selectedScope = scope || 'repo user:email';
+  
   const response = await fetch('/.netlify/functions/github-device-flow', {
     method: 'POST',
     headers: {
@@ -19,7 +21,7 @@ export async function initiateDeviceFlow(): Promise<DeviceFlowResponse> {
     },
     body: JSON.stringify({
       action: 'initiate',
-      scope: 'repo user:email'
+      scope: selectedScope
     })
   });
 

@@ -42,10 +42,10 @@ export function useGitHubAuth() {
     }
   }, []);
 
-  const startDeviceFlow = useCallback(async () => {
+  const startDeviceFlow = useCallback(async (scope?: string) => {
     try {
       setAuthState(prev => ({ ...prev, isLoading: true, error: null }));
-      const flow = await initiateDeviceFlow();
+      const flow = await initiateDeviceFlow(scope);
       setDeviceFlow(flow);
       setAuthState(prev => ({ ...prev, isLoading: false }));
     } catch (error) {
