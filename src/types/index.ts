@@ -78,6 +78,7 @@ export interface GitHubCommitResponse {
 export type AppScreen = 
   | 'url-input'
   | 'metadata-review'
+  | 'permission-selection'
   | 'github-auth'
   | 'edit-confirmation'
   | 'success'

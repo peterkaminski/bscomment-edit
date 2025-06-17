@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Layout } from './components/layout/Layout';
 import { UrlInputScreen } from './components/screens/UrlInputScreen';
 import { MetadataReviewScreen } from './components/screens/MetadataReviewScreen';
+import { PermissionSelectionScreen } from './components/screens/PermissionSelectionScreen';
 import { GitHubAuthScreen } from './components/screens/GitHubAuthScreen';
 import { EditConfirmationScreen } from './components/screens/EditConfirmationScreen';
 import { SuccessScreen } from './components/screens/SuccessScreen';
@@ -15,6 +16,7 @@ function App() {
   const [metadata, setMetadata] = useState<ParsedMetadata | null>(null);
   const [commitUrl, setCommitUrl] = useState('');
   const [globalError, setGlobalError] = useState<string | null>(null);
+  const [selectedScope, setSelectedScope] = useState<string>('');
 
   const { 
     isLoading: isMetadataLoading, 
@@ -36,6 +38,12 @@ function App() {
   };
 
   const handleMetadataContinue = () => {
+    setCurrentScreen('permission-selection');
+  };
+
+  const handlePermissionSelected = (scopeType: 'public' | 'full') => {
+    const scope = scopeType === 'public' ? 'public_repo user:email' : 'repo user:email';
+    setSelectedScope(scope);
     setCurrentScreen('github-auth');
   };
 
@@ -54,6 +62,7 @@ function App() {
     setMetadata(null);
     setCommitUrl('');
     setGlobalError(null);
+    setSelectedScope('');
     clearMetadataError();
   };
 
@@ -62,8 +71,11 @@ function App() {
       case 'metadata-review':
         setCurrentScreen('url-input');
         break;
-      case 'github-auth':
+      case 'permission-selection':
         setCurrentScreen('metadata-review');
+        break;
+      case 'github-auth':
+        setCurrentScreen('permission-selection');
         break;
       case 'edit-confirmation':
         setCurrentScreen('github-auth');
@@ -124,10 +136,19 @@ function App() {
         />
       )}
 
+      {currentScreen === 'permission-selection' && metadata && (
+        <PermissionSelectionScreen
+          onPermissionSelected={handlePermissionSelected}
+          onBack={handleBack}
+          targetRepo={`${metadata.owner}/${metadata.repoName}`}
+        />
+      )}
+
       {currentScreen === 'github-auth' && (
         <GitHubAuthScreen
           onAuthenticated={handleAuthenticationComplete}
           onBack={handleBack}
+          scope={selectedScope}
         />
       )}
 
