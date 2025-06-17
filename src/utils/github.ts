@@ -8,18 +8,17 @@ import {
 } from '../types';
 
 const GITHUB_API_BASE = 'https://api.github.com';
-const GITHUB_DEVICE_FLOW_BASE = 'https://github.com';
 const GITHUB_CLIENT_ID = import.meta.env.VITE_GITHUB_CLIENT_ID;
 
 export async function initiateDeviceFlow(): Promise<DeviceFlowResponse> {
-  const response = await fetch(`${GITHUB_DEVICE_FLOW_BASE}/login/device/code`, {
+  const response = await fetch('/.netlify/functions/github-device-flow', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      client_id: GITHUB_CLIENT_ID,
+      action: 'initiate',
       scope: 'repo user:email'
     })
   });
@@ -32,16 +31,15 @@ export async function initiateDeviceFlow(): Promise<DeviceFlowResponse> {
 }
 
 export async function pollForToken(deviceCode: string): Promise<DeviceFlowTokenResponse> {
-  const response = await fetch(`${GITHUB_DEVICE_FLOW_BASE}/login/oauth/access_token`, {
+  const response = await fetch('/.netlify/functions/github-device-flow', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      client_id: GITHUB_CLIENT_ID,
-      device_code: deviceCode,
-      grant_type: 'urn:ietf:params:oauth:grant-type:device_code'
+      action: 'poll',
+      deviceCode: deviceCode
     })
   });
 
